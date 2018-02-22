@@ -4,17 +4,19 @@ require 'sinatra/base'
 require 'rest-client'
 require 'json'
 
-class SlackDockerApp < Sinatra::Base
+# For documentation on incoming webhooks see
+# https://help.statuspage.io/knowledge_base/topics/webhook-notifications
+# and scroll down to Incident Updates
+
+class SlackStatuspageApp < Sinatra::Base
   get "/*" do
     params[:splat].first
   end
   post "/*" do
-    docker = JSON.parse(request.body.read)
-    slack = {text: "[<#{docker['repository']['repo_url']}|#{docker['repository']['repo_name']}:#{docker['push_data']['tag']}>] new image build complete."}
-    RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json){ |response, request, result, &block|
-        RestClient.post(docker['callback_url'], {state: response.code==200?"success":"error"}.to_json, :content_type => :json)
-    }
+    #statuspage = JSON.parse(request.body.read)
+    slack = {text: request.body.read}
+    RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json)
   end
 end
 
-run SlackDockerApp
+run SlackStatuspageApp
