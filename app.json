@@ -1,5 +1,5 @@
 {
-  "name": "Slack Statuspage.io integration",
+  "name": "Slack Statuspage.io webhooks",
   "description": "A webhook translator between Statuspage.io and Slack",
   "repository": "https://github.com/tdmalone/statuspage-to-slack",
   "keywords": ["slack", "statuspage.io", "ruby"]
