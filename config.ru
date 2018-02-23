@@ -23,13 +23,14 @@ class SlackStatuspageApp < Sinatra::Base
     statuspage = JSON.parse( raw )
 
     # For further development purposes, let's log the incoming data.
-    # puts raw
+    puts raw
 
     # We'll ignore component updates for now - we're only interested in incidents.
     # Component updates are more for automation than notifications (see above link).
-    # if ( ! statuspage.instance_variable_defined?(:@incident) ) then
-    #   return
-    # end
+    if ( ! statuspage['incident'] ) then
+      puts "Dropping payload as no 'incident' is defined."
+      return
+    end
 
     # Map potential incident impact values to Slack attachment colour values.
     # @see https://api.slack.com/docs/message-attachments#color
