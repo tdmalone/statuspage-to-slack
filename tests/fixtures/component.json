@@ -1,0 +1,32 @@
+{
+	"meta": {
+		"unsubscribe": "http://status.example.com/?unsubscribe=bbbbbbbbbbbb",
+		"documentation": "http://doers.statuspage.io/customer-notifications/webhooks/",
+		"generated_at": "2018-02-23T01:35:46.498Z"
+	},
+	"page": {
+		"id": "xxxxxxxxxxxx",
+		"status_indicator": "minor",
+		"status_description": "Partially Degraded Service"
+	},
+	"component": {
+		"status": "degraded_performance",
+		"name": "Dashboard",
+		"created_at": "2013-07-16T20:33:56.447Z",
+		"updated_at": "2018-02-23T01:35:43.325Z",
+		"position": 2,
+		"description": "The dashboard interface and related operations",
+		"showcase": false,
+		"id": "yyyyyyyyyyyy",
+		"page_id": "xxxxxxxxxxxx",
+		"group_id": null
+	},
+	"component_update": {
+		"old_status": "operational",
+		"new_status": "degraded_performance",
+		"created_at": "2018-02-23T01:35:43.332Z",
+		"component_type": "Component",
+		"id": "zzzzzzzzzzzz",
+		"component_id": "yyyyyyyyyyyy"
+	}
+}
