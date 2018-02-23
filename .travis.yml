@@ -1,0 +1,16 @@
+language: ruby
+cache: bundler
+
+script:
+
+  - ruby -c config.ru
+  - rubocop config.ru
+
+notifications:
+  email: false
+  webhooks:
+    urls: https://api.tm.id.au/dev/travis/jobStatus
+  slack:
+    on_start: always
+    rooms:
+      - secure: FvK+MXBXXQGxLLqw9GHFUEaP7g8qxXp7eHTYmMyNpOxnyKlrr9EWpegj4nY37x7+cpsp1xGiHiwQphVKwj4p0PAAhYQroxQCP2gl2ZkWM0kuOFxpEPbAZ+UT8Mm3S4njOUQK4LmbOZ8c9ayfyEOO3CGRvIqkYQ0U89POkOeORwZnZU8WTkscwklQRxKP8ASQTbBtuHqHtmNKS64smYbqvujhZey5Hh+wCJ5+5gJosmcAR5qJ58JYI6wHXXJEz1uL9Ndr6fd3CoP18gGu9wl2ioMpox9pxgpwXJOqvjwOop4chiT2PA1zo73pFjjl6G4ExtzR5m3WNVAVLTMq4FKKPrXXHksnwMRqFOYl7azCVrWlZGPr39wEbvogyI+Ef6mj25pKJuOlZSb+cIQw7Gciw+zpoRtETyfqvotFX4ZtIRRnHh/6B10Qv5Lwkr3UVcyuunHibDuNOcKK0HeRN6ykO3t0RDXQXqEPXglcngTZmXq4l5+jkJCR7/winva+ulLGjg+4PfyMWXe398S1RUOqcS+ZXxnl8UvoeLNK+VV2Mcwbp4SCbHEo/XU9w9eeLR7ChICzzKxF38CZFvWqEVinKdnW8fIM4sG2yZ7jkZMcp7BYfkRtFGIkgJaiuiuo5bIFvqRy8GABVcwpgye5TVb1R7wxMl9Qufbq2dmvYNyY5CI=
