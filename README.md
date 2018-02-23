@@ -1,5 +1,4 @@
-Statuspage.io webhook notifications for Slack
-=============================================
+# Statuspage.io webhook notifications for Slack
 
 A tiny Sinatra app that receives webhooks from Statuspage.io subscriptions and re-posts them as Slack formatted hooks.
 

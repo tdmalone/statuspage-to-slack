@@ -12,9 +12,10 @@ class SlackStatuspageApp < Sinatra::Base
     params[:splat].first
   end
 
+  # Handle incoming POST requests!
   post "/*" do
 
-    # For documentation on incoming webhooks see:
+    # For documentation on incoming webhooks see
     # https://help.statuspage.io/knowledge_base/topics/webhook-notifications
     # and scroll down to Incident Updates.
 
@@ -52,9 +53,10 @@ class SlackStatuspageApp < Sinatra::Base
 
     }
 
+    # Send to Slack.
     RestClient.post( "https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json )
 
-  end
-end
+  end # Post do.
+end # Class SlackStatuspageApp.
 
 run SlackStatuspageApp
