@@ -2,19 +2,19 @@ GEM
   remote: https://rubygems.org/
   specs:
     daemons (1.2.4)
-    domain_name (0.5.20160826)
+    domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     eventmachine (1.2.0.1)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
-    mime-types (3.1)
+    mime-types (3.2.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types-data (3.2018.0812)
     netrc (0.11.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    rest-client (2.0.0)
+    rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
@@ -29,7 +29,7 @@ GEM
     tilt (2.0.5)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.5)
 
 PLATFORMS
   ruby
@@ -40,4 +40,4 @@ DEPENDENCIES
   thin
 
 BUNDLED WITH
-   1.12.5
+   1.16.6
