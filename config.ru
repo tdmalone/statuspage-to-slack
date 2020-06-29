@@ -28,10 +28,9 @@ class SlackStatuspageApp < Sinatra::Base
 
     updates = incident["incident_updates"]
 
-    updates.each { |update_hash|
-      block_array.push(build_divider_block)
-      block_array.push(build_update_block(update_hash))
-    }
+    block_array.push(build_divider_block)
+    block_array.push(build_update_block(updates.first))
+
     slack = {text: "Gov Notify Status Update", blocks: block_array}
     RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json)
 
