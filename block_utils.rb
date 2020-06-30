@@ -1,7 +1,7 @@
 require 'time'
 
   def build_title_block(title, link, timestamp)
-    return { type: "section", text: { type: "mrkdwn", text: "<#{link}|#{title}>\n#{timestamp}" }}
+    return { type: "section", text: { type: "mrkdwn", text: ":triangular_flag_on_post:\n<#{link}|#{title}>\n#{timestamp}" }}
   end
   
   def build_update_block(update_hash)
