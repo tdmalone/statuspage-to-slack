@@ -16,23 +16,25 @@ class SlackStatuspageApp < Sinatra::Base
     params[:splat].first
   end
   post "/*" do
-    block_array = []
     statuspage = JSON.parse(request.body.read)
-    
-    incident = statuspage["incident"]
-    title = incident["name"]
-    titleurl = incident["shortlink"]
-    timestamp = format_time(incident["started_at"])
+    if(!statuspage.has_key?("incident_updates")){
 
-    block_array.push(build_title_block(title, titleurl, timestamp))
-
-    updates = incident["incident_updates"]
-
-    block_array.push(build_divider_block())
-    block_array.push(build_update_block(updates.first))
-
-    slack = {text: "Status Page Update", blocks: block_array}
-    RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json)
+      incident = statuspage["incident"]
+      title = incident["name"]
+      titleurl = incident["shortlink"]
+      timestamp = format_time(incident["started_at"])
+      
+      block_array = []
+      block_array.push(build_title_block(title, titleurl, timestamp))
+      
+      updates = incident["incident_updates"]
+      
+      block_array.push(build_divider_block())
+      block_array.push(build_update_block(updates.first))
+      
+      slack = {text: "Status Page Update", blocks: block_array}
+      RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json)
+    }
 
   end
 end
