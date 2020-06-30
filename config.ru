@@ -24,8 +24,6 @@ class SlackStatuspageApp < Sinatra::Base
     titleurl = incident["shortlink"]
     timestamp = format_time(incident["started_at"])
 
-    block_array.push(build_divider_block())
-    block_array.push(build_divider_block())
     block_array.push(build_title_block(title, titleurl, timestamp))
 
     updates = incident["incident_updates"]
