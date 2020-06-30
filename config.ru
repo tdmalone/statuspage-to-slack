@@ -31,7 +31,7 @@ class SlackStatuspageApp < Sinatra::Base
     block_array.push(build_divider_block())
     block_array.push(build_update_block(updates.first))
 
-    slack = {text: "Status Page Update :information_source:", blocks: block_array}
+    slack = {text: "Status Page Update", blocks: block_array}
     RestClient.post("https://hooks.slack.com/#{params[:splat].first}", payload: slack.to_json)
 
   end
